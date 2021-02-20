@@ -16,6 +16,8 @@ urlpatterns = [
 
     # Language selector
     path('lang/', include('django.conf.urls.i18n')),
+
+    path("social/", include("social_django.urls", namespace="social")),
 ]
 
 monitoring_patterns = [

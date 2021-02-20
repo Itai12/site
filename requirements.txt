@@ -91,3 +91,7 @@ pyparsing>=2.3.1
 
 # Django OpenID Connect Provider
 django-oidc-provider
+
+# DT semifinals OIDC
+python-jose
+social-auth-app-django

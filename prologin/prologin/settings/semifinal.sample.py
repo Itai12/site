@@ -46,3 +46,11 @@ DATABASES = {
         'NAME': 'prologin',
     }
 }
+
+PROLOGIN_OIDC_ENDPOINT = "https://prologin.org/openid"
+
+SOCIAL_AUTH_PROLOGIN_SCOPE = [
+    "email",
+    "contest",
+    "security_clearance",
+]

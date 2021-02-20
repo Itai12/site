@@ -15,7 +15,7 @@
     <div class="col-md-7">
       <h2>{% trans "Sign in with your credentials" %}</h2>
 
-      <form method="POST" class="form-horizontal">
+      {% if False %}form method="POST" class="form-horizontal">
         {% csrf_token %}
         {{ form|bootstrap_horizontal }}
         <input type="hidden" name="next" value="{{ next }}"/>
@@ -26,7 +26,10 @@
                 class="fa fa-sign-in"></i> {% trans "Sign in" %}</button>
           </div>
         </div>
-      </form>
+      </form> {% endif %}
+
+      <br>
+      <a class="btn btn-primary btn-lg" href="{% url 'social:begin' 'prologin' %}">Connexion avec prologin.org</a>
     </div>
   </div>
 
