@@ -8,6 +8,8 @@ from rules.contrib.views import PermissionRequiredMixin
 from problems.models import Submission
 from prologin.utils.scoring import decorate_with_rank
 
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 User = get_user_model()
 
 
@@ -37,7 +39,7 @@ class Homepage(ParticipateRequiredMixin, TemplateView):
     template_name = 'semifinal/homepage.html'
 
 
-class Scoreboard(ScoreboardUserListMixin, TemplateView):
+class Scoreboard(LoginRequiredMixin, ScoreboardUserListMixin, TemplateView):
     template_name = 'semifinal/scoreboard.html'
 
     def get_context_data(self, **kwargs):
@@ -46,7 +48,7 @@ class Scoreboard(ScoreboardUserListMixin, TemplateView):
         return context
 
 
-class ScoreboardData(ScoreboardUserListMixin, View):
+class ScoreboardData(LoginRequiredMixin, ScoreboardUserListMixin, View):
     def get(self, context, **kwargs):
         return JsonResponse(self.get_json_data(), safe=False)
 
